@@ -1,3 +1,209 @@
+
+# Mitra API Documentation 📱
+
+## Overview 🌟
+This API handles CRUD operations for "Mitra". The available routes include creating, reading, updating, and deleting Mitra data. 
+Postman link available: 
+---
+
+## 🚀 **API Routes**
+
+### 1. **GET /api/mitras** 
+Retrieve a list of all mitras.
+
+#### Request
+No request body required.
+
+#### Response
+```json
+{
+  "data": [
+    {
+      "slug": "example-mitra-123456",
+      "name": "Mitra Example",
+      "status": "aktif",
+      "business_type": "Retail"
+    }
+  ],
+  "error": []
+}
+```
+
+- **data**: Array of mitra objects.
+- **error**: Empty array if no errors occurred.
+
+---
+
+### 2. **POST /api/mitras** 
+Create a new Mitra.
+
+#### Request
+```json
+{
+  "name": "Mitra Example",
+  "status": "aktif",
+  "business_type": "Retail"
+}
+```
+
+#### Response (Success)
+```json
+{
+  "data": [
+    {
+      "slug": "mitra-example-123456",
+      "name": "Mitra Example",
+      "status": "aktif",
+      "business_type": "Retail"
+    }
+  ],
+  "error": []
+}
+```
+
+#### Response (Validation Error)
+```json
+{
+  "data": [],
+  "error": {
+    "name": ["Nama mitra wajib diisi."],
+    "status": ["Status mitra harus dipilih."]
+  }
+}
+```
+
+- **data**: Array containing the created mitra.
+- **error**: Array containing validation error messages.
+
+---
+
+### 3. **GET /api/mitras/{slug}** 
+Retrieve a single Mitra by its `slug`.
+
+#### Request
+No request body required.
+
+#### Response (Success)
+```json
+{
+  "data": [
+    {
+      "slug": "mitra-example-123456",
+      "name": "Mitra Example",
+      "status": "aktif",
+      "business_type": "Retail"
+    }
+  ],
+  "error": []
+}
+```
+
+#### Response (Not Found)
+```json
+{
+  "data": [],
+  "error": ["Mitra dengan slug tersebut tidak ditemukan."]
+}
+```
+
+- **data**: Array containing the mitra object.
+- **error**: Empty array if no errors occurred. If mitra not found, an error message is provided.
+
+---
+
+### 4. **PUT /api/mitras/{slug}** 
+Update an existing Mitra.
+
+#### Request
+```json
+{
+  "name": "Updated Mitra Example",
+  "status": "nonaktif",
+  "business_type": "Wholesale"
+}
+```
+
+#### Response (Success)
+```json
+{
+  "data": [
+    {
+      "slug": "updated-mitra-example-123456",
+      "name": "Updated Mitra Example",
+      "status": "nonaktif",
+      "business_type": "Wholesale"
+    }
+  ],
+  "error": []
+}
+```
+
+#### Response (Validation Error)
+```json
+{
+  "data": [],
+  "error": {
+    "name": ["Nama mitra wajib diisi."],
+    "status": ["Status mitra harus dipilih."]
+  }
+}
+```
+
+- **data**: Array containing the updated mitra object.
+- **error**: Array containing validation error messages.
+
+---
+
+### 5. **DELETE /api/mitras/{slug}** 
+Delete a Mitra.
+
+#### Request
+No request body required.
+
+#### Response (Success)
+```json
+{
+  "data": "Success delete Mitra",
+  "error": []
+}
+```
+
+#### Response (Not Found)
+```json
+{
+  "data": [],
+  "error": ["Mitra tidak ditemukan."]
+}
+```
+
+- **data**: A message indicating whether the mitra was successfully deleted or an error message if mitra is not found.
+- **error**: Empty array if no errors occurred.
+
+---
+
+## **Error Codes ⚠️**
+
+- **404 Not Found**: Returned when no mitra is found for a specific `slug`.
+- **422 Unprocessable Entity**: Returned when the request fails validation (e.g., missing or incorrect data).
+
+---
+
+## **Request Validation 📝**
+
+The following fields are validated for each request:
+
+- `name`: Required, must be a string.
+- `status`: Required, must be either "aktif" or "nonaktif".
+- `business_type`: Required, must be a string.
+
+Custom validation messages are provided to guide the user.
+
+---
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
