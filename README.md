@@ -4,7 +4,6 @@
 ## Overview 🌟
 This API handles CRUD operations for "Mitra". The available routes include creating, reading, updating, and deleting Mitra data. 
 Postman link available: 
----
 
 ## 🚀 **API Routes**
 
