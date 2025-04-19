@@ -3,7 +3,7 @@
 
 ## Overview 🌟
 This API handles CRUD operations for "Mitra". The available routes include creating, reading, updating, and deleting Mitra data. 
-Postman link available: 
+Postman link available: https://api.postman.com/collections/40994183-fd19ec57-2c15-413d-a77f-f46eed13b279?access_key=PMAT-01JS70JDNESVJ39QG4FY9Y4MKY
 
 ## 🚀 **API Routes**
 
